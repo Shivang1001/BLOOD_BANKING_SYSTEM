@@ -7,7 +7,7 @@
     <h3 style="margin: auto; color:#EB1616;">REGISTER FOR BLOOD CAMP</h3>
   </div>
   <div style="margin-top: 10px;">
-    <form action="#">
+    <form action="camp_details.php" method="post">
           <div class="form first">
             <div class="container-fluid">
     					<div class="bg-secondary rounded p-2">
@@ -104,8 +104,8 @@
           </div>
           <div class="buttons" style="margin-top: 5px;">
               <button class="sumbit" style="margin: auto; border-radius: 15px;">
-                  <span class="btnText" style="text-align: center;">Submit</span>
-                      <i class="uil uil-navigator"></i>
+                    <span class="btnText" style="text-align: center;">Submit</span>
+                    <i class="uil uil-navigator"></i>
               </button>
             </div>
               </div>
