@@ -32,11 +32,36 @@ include('sidebar.php')
                     </tr>
                 </thead>
                 <tbody>
-                  <tr class="text-white">
-                    <td>ABC</td>
-                    <td>ABC</td>
-                    <td>ABC</td>
-                  </tr>
+                  <?php
+                    if(isset($_GET['search']))
+                    {
+                        $filtervalues = $_GET['search'];
+                        $query = "SELECT * FROM bloodbankdb_open_doc WHERE State LIKE '%$filtervalues%'";
+
+                        $query_run = mysqli_query($con,$query);
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $items)
+                            {
+                                ?>
+                                <tr class="text-white">
+                                    <td><?= $items['bbnumber']; ?></td>
+                                    <td><?= $items['Address']; ?></td>
+                                    <td><?= $items['State']; ?></td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        else
+                        {
+                            ?>
+                            <tr class="text-white">
+                                <td colspan = '4'>No Record found</td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>

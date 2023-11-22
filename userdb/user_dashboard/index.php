@@ -59,29 +59,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-white">
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                        </tr>
-                        <tr class="text-white">
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                                <td>abc</td>
-                        </tr>
+                        <?php
+                            $sql = "SELECT * from requestblood WHERE status = 0";
+                            $query_run = mysqli_query($con,$sql);
+
+                            while($row = mysqli_fetch_assoc($query_run))
+                            {
+                                ?>
+                                <tr class="text-white">
+                                <td><?php echo $row['RequiredDate']; ?></td>
+                                <td><?php echo $row['PatientName']; ?></td>
+                                <td><?php echo $row['BloodGroup']; ?></td>
+                                <td><?php echo $row['Emailid']; ?></td>
+                                <td><?php echo $row['PhoneNumber']; ?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
           </div>
         </div>
 
-
-
-				<footer class="footer" style="margin-top: 10px;">
+		<footer class="footer" style="margin-top: 10px;">
           <div class="container-fluid">
 				  <div class="row">
 				  <div class="col-md-6" style="color: white;">
